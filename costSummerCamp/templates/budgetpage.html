@@ -1,0 +1,168 @@
+{% from 'bootstrap/form.html' import render_form %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>SummerCampofCost</title>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/css/bootstrap.min.css" type="text/css">
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <style type="text/css">
+        body {background-color: rgb(245, 245, 245) !important;}
+        p {overflow-wrap: break-word; word-wrap: break-word;}
+        .container {max-width: 1280px !important;}
+        .hello-form {margin-bottom: 20px;}
+        header {margin: 50px 0 40px 0;}
+        header h1 {font-size: 60px; font-weight: bold;}
+        .sub-title {font-size: 24px;}
+        @media screen and (max-width: 600px) {.sub-title {display: block;}}
+        header a {text-decoration: none !important;}
+        footer {font-size: 22px; font-weight: bold;}
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<main class="container">
+
+    <header>
+        <br>
+        <br>
+        <br>
+        <h1 class="text-center display-1">
+            <a href="http://127.0.0.1:5000/" class="text-success"><strong>SummerCamp</strong></a>
+            <small class="text-muted sub-title">of cost</small>
+        </h1>
+        <br>
+        <br>
+        <br>
+    </header>
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+
+    </div>
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+
+
+    <h2 class="text-center " >本次夏令营活动的预算开销总费用为{{TotalBudget}}元</h2><br><br><br>
+
+
+
+
+
+    <div>
+
+        <div id="main" class="center" style="width: 1280px;height:600px;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption({{ CostPieInBudget|safe }});
+        </script>
+    </div>
+
+    <div>
+
+        <div id="main1" class="center" style="width: 1280px;height:600px;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main1'));
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption({{ CostBarInBudget| safe }});
+        </script>
+    </div>
+    <div>
+
+        <div id="main2" class="center" style="width: 1280px;height:600px;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main2'));
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption({{  ClassPieInBudget| safe}});
+        </script>
+    </div>
+    <div>
+
+        <div id="main3" class="center" style="width: 1280px;height:600px;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main3'));
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption({{ ClassBarInBudget | safe }});
+        </script>
+    </div>
+    <div>
+
+        <div id="main4" class="center" style="width: 1280px;height:600px;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main4'));
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption({{ ConsumablesPieInBudget| safe }});
+        </script>
+    </div>
+
+    </div>
+    <div>
+
+        <div id="main5" class="center" style="width: 1280px;height:600px;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main5'));
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption({{ ConsumablesBarInBudget| safe  }});
+        </script>
+    </div>
+
+
+
+
+
+    <div class="hello-form">
+        <h3>添加新产生的费用明细</h3>
+        {{ render_form(costdetailsadd) }}
+    </div>
+    <br>    <br>    <br>
+
+
+
+
+    <div class="hello-form">
+        <h3>添加新产生的费用类型</h3>
+        {{ render_form(costadd) }}
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="text-center">
+        &copy; 2019 <a href="https://github.com/Handsomeweiye" title="Written by WeiYe">Designed by Weiye</a>
+    </footer>
+
+</main>
+
+
+</body>
+
+
+
+
+
+</html>

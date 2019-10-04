@@ -1,5 +1,5 @@
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///c:/sqlite/data6.db'
+SQLALCHEMY_DATABASE_URI ='sqlite:///~/CostSummerCamp/costSummerCamp/data.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 DEBUG_TB_INTERCEPT_REDIRECTS = False
 

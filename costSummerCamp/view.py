@@ -2,7 +2,6 @@ from flask import redirect,url_for,render_template,flash
 from costSummerCamp import db,app
 from costSummerCamp.form import CostAdd,CostDetailsAdd
 from costSummerCamp.model import Cost,CostDetails
-from costSummerCamp import bootstrap
 from pyecharts.charts import Bar,Pie
 from pyecharts import options as opts
 

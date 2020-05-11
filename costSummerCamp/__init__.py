@@ -18,3 +18,4 @@ db = SQLAlchemy(app)
 Debugtool = DebugToolbarExtension(app)
 
 from costSummerCamp import view,command
+

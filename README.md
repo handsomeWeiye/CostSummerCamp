@@ -33,7 +33,7 @@
 
 ## 小Demo
 
->[CostofSummerCamp](http://weiye.site:2436/)
+>[CostofSummerCamp](http://summercamp.weiye.site/)
 
 这是我们开发的一款小应用
 
